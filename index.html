@@ -278,9 +278,9 @@
                  DANH SÁCH NHẬN LỘC
             </div>
             <div class="history-list" id="historyList"></div>
-            <button onclick="clearAll()" style="background:none; border:none; color:#ffaaaa; cursor:pointer; font-size:0.85em; margin-top:12px; display:block; margin-left:auto;">
+            <!-- <button onclick="clearAll()" style="background:none; border:none; color:#ffaaaa; cursor:pointer; font-size:0.85em; margin-top:12px; display:block; margin-left:auto;">
                 Xóa lịch sử (chỉ admin)
-            </button>
+            </button> -->
         </div>
     </div>
 
@@ -320,17 +320,17 @@
         let history = JSON.parse(localStorage.getItem('lixi_history_2026')) || [];
 
         // Danh sách tên đặc biệt và mức tiền cố định
-        const specialNames = {
-            "phan thị diệp anh": 200000,
-            "nguyễn ngọc phương nhi": 200000,
-            "hà yến nhi": 200000,
-            "la thiên vũ": 50000,
-            "tào minh nhật": 50000,
-            "nguyễn thanh hải": 50000,
-            "bùi minh đức": 50000,
-            "hoàng đỗ gia huy": 50000,
-            "nguyễn đức việt": 50000
-        };
+        // const specialNames = {
+        //     "phan thị diệp anh": 200000,
+        //     "nguyễn ngọc phương nhi": 200000,
+        //     "hà yến nhi": 200000,
+        //     "la thiên vũ": 50000,
+        //     "tào minh nhật": 50000,
+        //     "nguyễn thanh hải": 50000,
+        //     "bùi minh đức": 50000,
+        //     "hoàng đỗ gia huy": 50000,
+        //     "nguyễn đức việt": 50000
+        // };
 
         const normalOptions = [
             { val: 10000,   weight: 40   },
