@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lì Xì May Mắn 2026 🧧</title>
     <link href="https://fonts.googleapis.com/css2?family=Pattaya&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -20,7 +20,8 @@
             justify-content: center;
             align-items: center;
             overflow-x: hidden;
-            padding: 20px;
+            padding: 15px;
+            color: white;
         }
         .container {
             text-align: center;
@@ -32,56 +33,57 @@
         h1 {
             font-family: 'Pattaya', cursive;
             color: var(--gold-tet);
-            font-size: 3.8em;
+            font-size: clamp(2.5em, 8vw, 3.8em);
             text-shadow: 0 0 20px rgba(255,205,0,0.7), 3px 3px 0 #000;
             margin-bottom: 8px;
         }
         .subtitle {
             color: #ffd;
             font-style: italic;
-            margin-bottom: 30px;
-            font-size: 1.1em;
+            margin-bottom: 25px;
+            font-size: clamp(1em, 4vw, 1.1em);
         }
+
+        /* Icon lì xì */
         .lixi-icon {
-            font-size: 180px;
-            margin: 50px auto 30px;
+            font-size: clamp(120px, 40vw, 180px);
+            margin: clamp(30px, 10vw, 50px) auto clamp(20px, 8vw, 30px);
             transition: all 0.4s ease;
             text-shadow: 0 8px 20px rgba(0,0,0,0.5);
-            display: block;
-            width: fit-content;
             pointer-events: none;
         }
         .lixi-icon:hover {
             transform: scale(1.12) rotate(5deg);
             filter: drop-shadow(0 0 25px #ffcd00);
         }
+
+        /* Input & Button */
         .input-group {
-            margin: 0 auto 25px;
+            margin: 0 auto 20px;
             max-width: 380px;
             display: flex;
             gap: 8px;
         }
         input {
             flex: 1;
-            padding: 14px 20px;
+            padding: clamp(12px, 4vw, 14px) 18px;
             border-radius: 50px;
             border: 3px solid var(--gold-tet);
-            font-size: 1.1em;
+            font-size: clamp(1em, 4vw, 1.1em);
             font-weight: bold;
             text-align: center;
             background: rgba(255,255,255,0.15);
             color: white;
             outline: none;
         }
-        input::placeholder {
-            color: rgba(255,255,255,0.6);
-        }
+        input::placeholder { color: rgba(255,255,255,0.6); }
+
         .btn-main {
             background: linear-gradient(180deg, #ffea70, #ffcd00);
             color: #8b0000;
             border: none;
-            padding: 16px 50px;
-            font-size: 1.35em;
+            padding: clamp(14px, 5vw, 16px) clamp(40px, 10vw, 50px);
+            font-size: clamp(1.2em, 5vw, 1.35em);
             font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
@@ -89,17 +91,102 @@
             transition: all 0.18s;
             margin: 0 auto 20px;
             display: block;
-            min-width: 260px;
+            min-width: 220px;
+            width: 80%;
+            max-width: 300px;
         }
         .btn-main:hover { transform: translateY(-3px); box-shadow: 0 12px 0 #b8860b, 0 18px 35px rgba(0,0,0,0.5); }
         .btn-main:active { transform: translateY(4px); box-shadow: 0 3px 0 #b8860b; }
         .btn-main:disabled { opacity: 0.6; cursor: not-allowed; box-shadow: none; transform: none; }
 
+        /* Modal hướng dẫn */
+        #guideModal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+        #guideModal.visible { opacity: 1; visibility: visible; }
+        .modal-content {
+            background: linear-gradient(135deg, #c8102e, #8b0000);
+            border: 5px solid var(--gold-tet);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 480px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: clamp(20px, 5vw, 30px);
+            color: white;
+            text-align: left;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.8), inset 0 5px 20px rgba(255,255,255,0.15);
+            position: relative;
+            animation: popIn 0.6s ease-out;
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.7); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .modal-content h2 {
+            font-family: 'Pattaya', cursive;
+            color: var(--gold-tet);
+            font-size: clamp(1.8em, 6vw, 2.2em);
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 6px #000;
+        }
+        .modal-content p, .modal-content ul {
+            font-size: clamp(0.95em, 3.5vw, 1.05em);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .modal-content ul {
+            padding-left: 25px;
+            list-style: none;
+        }
+        .modal-content ul li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        .modal-content ul li::before {
+            content: "🧧 ";
+            position: absolute;
+            left: -25px;
+            font-size: 1.2em;
+        }
+        .modal-btn {
+            background: linear-gradient(180deg, #ffea70, #ffcd00);
+            color: #8b0000;
+            border: none;
+            padding: clamp(12px, 4vw, 14px) clamp(30px, 8vw, 40px);
+            font-size: clamp(1.1em, 4.5vw, 1.3em);
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px auto 0;
+            display: block;
+            box-shadow: 0 6px 0 #b8860b;
+            transition: all 0.2s;
+        }
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 0 #b8860b;
+        }
+        .modal-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 3px 0 #b8860b;
+        }
+
+        /* Kết quả & Lịch sử */
         #resultCard {
-            margin: 30px auto;
-            width: 320px;
-            max-width: 90%;
-            height: 200px;
+            margin: clamp(20px, 6vw, 30px) auto;
+            width: clamp(280px, 80vw, 320px);
+            height: clamp(170px, 50vw, 200px);
             background: linear-gradient(135deg, var(--red-tet), #a00000);
             border: 5px solid var(--gold-tet);
             border-radius: 20px;
@@ -120,50 +207,57 @@
             content: '🧧';
             position: absolute;
             top: 8px; right: 12px;
-            font-size: 3.2em;
+            font-size: clamp(2.5em, 8vw, 3.2em);
             opacity: 0.25;
             pointer-events: none;
         }
         .flap-top {
-            width: 100%; height: 45px;
+            width: 100%; height: clamp(40px, 10vw, 45px);
             background: linear-gradient(to bottom, #ff4d4d, var(--red-tet));
             border-bottom: 5px solid var(--gold-tet);
             display: flex; align-items: center; justify-content: center;
-            font-family: 'Pattaya', cursive; font-size: 1.8em;
+            font-family: 'Pattaya', cursive; font-size: clamp(1.4em, 5vw, 1.8em);
             color: var(--gold-tet); text-shadow: 2px 2px 4px #000;
             position: absolute; top: 0; left: 0;
         }
         .result-amount {
-            font-size: 3.5em; font-weight: 900;
+            font-size: clamp(2.5em, 10vw, 3.5em);
+            font-weight: 900;
             color: #00ff41; text-shadow: 3px 3px 8px #000;
-            margin: 40px 0 10px; z-index: 2;
+            margin: clamp(30px, 10vw, 40px) 0 10px; z-index: 2;
         }
         .bottom-text {
-            font-size: 1.2em; color: #fff9e6;
+            font-size: clamp(1em, 4vw, 1.2em);
+            color: #fff9e6;
             text-shadow: 1px 1px 3px #000; margin-bottom: 10px;
         }
         .history-card {
             background: rgba(255,255,255,0.08); border-radius: 16px;
-            padding: 20px; margin-top: 40px;
+            padding: clamp(15px, 5vw, 20px);
+            margin-top: clamp(30px, 8vw, 40px);
             border: 1px solid var(--gold-tet); color: white;
         }
         .history-list { max-height: 220px; overflow-y: auto; margin-top: 12px; }
         .history-item {
             display: flex; justify-content: space-between;
             padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.12);
-            font-size: 0.95em;
+            font-size: clamp(0.9em, 3.5vw, 0.95em);
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .confetti {
             position: fixed; width: 12px; height: 12px;
             border-radius: 3px; z-index: 100; pointer-events: none;
         }
+
+        /* Responsive chi tiết */
         @media (max-width: 500px) {
-            h1 { font-size: 2.8em; }
-            .lixi-icon { font-size: 140px; margin: 40px auto 25px; }
-            .btn-main { padding: 14px 40px; font-size: 1.2em; }
-            #resultCard { width: 280px; height: 180px; }
-            .result-amount { font-size: 2.8em; }
-            .flap-top { font-size: 1.5em; height: 40px; }
+            body { padding: 10px; }
+            .container { padding: 0 10px; }
+            .input-group { flex-direction: column; gap: 12px; }
+            input { width: 100%; }
+            .btn-main { width: 100%; min-width: unset; padding: 14px 30px; }
+            .history-item { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -197,6 +291,31 @@
         </div>
     </div>
 
+    <!-- Modal hướng dẫn -->
+    <div id="guideModal">
+        <div class="modal-content">
+            <h2>🎉 HƯỚNG DẪN CHƠI LÌ XÌ TẾT 2026 🎉</h2>
+            <p>1. Nhập <strong>họ và tên ĐẦY ĐỦ</strong> (ví dụ: Nguyễn Văn A, Trần Thị Bích Ngọc).<br>
+               → Chỉ nhập tên riêng (Văn A, Bích, A...) sẽ không được rút!</p>
+            <p>2. Nhấn nút <strong>"RÚT LÌ XÌ NGAY"</strong> để nhận lộc.<br>
+               → Mỗi người chỉ được rút <strong>1 lần duy nhất</strong>!</p>
+            <p>3. Các mức tiền có thể nhận (xác suất ngẫu nhiên):</p>
+            <ul>
+                <li>10.000đ   (rất phổ biến)</li>
+                <li>20.000đ</li>
+                <li>50.000đ</li>
+                <li>100.000đ</li>
+                <li>200.000đ</li>
+                <li>500.000đ   (hiếm)</li>
+                <li>1.000.000đ (JACKPOT - cực hiếm!)</li>
+            </ul>
+            <p style="text-align:center; font-weight:bold; margin-top:20px;">
+                Chúc bạn may mắn nhận được lộc lớn! 🧧💰
+            </p>
+            <button class="modal-btn" onclick="closeGuide()">BẮT ĐẦU CHƠI</button>
+        </div>
+    </div>
+
     <audio id="sndTing" src="https://assets.mixkit.co/active_storage/sfx/2013/2013-preview.mp3"></audio>
     <audio id="sndJackpot" src="https://assets.mixkit.co/active_storage/sfx/1435/1435-preview.mp3"></audio>
 
@@ -214,39 +333,22 @@
             { val: 1000000, weight: 0.5,  msg: "JACKPOT! CHÚC MỪNG TỶ PHÚ! 🎰" }
         ];
 
-        // Hiển thị hướng dẫn khi vào trang lần đầu
+        // Modal hướng dẫn
         function showGuide() {
             if (!localStorage.getItem('hasSeenGuide2026')) {
-                const guideText = 
-`🎉 HƯỚNG DẪN CHƠI LÌ XÌ TẾT 2026 🎉
-
-1. Nhập họ và tên ĐẦY ĐỦ (ví dụ: Nguyễn Văn A, Trần Thị Bích Ngọc).
-   - Chỉ nhập tên riêng (Văn A, Bích, A...) sẽ không được rút!
-
-2. Nhấn nút "RÚT LÌ XÌ NGAY" để nhận lộc.
-   - Mỗi người chỉ được rút 1 lần duy nhất!
-
-3. Các mức tiền có thể nhận (xác suất ngẫu nhiên):
-   - 10.000đ   (rất phổ biến)
-   - 20.000đ
-   - 50.000đ
-   - 100.000đ
-   - 200.000đ
-   - 500.000đ   (hiếm)
-   - 1.000.000đ (JACKPOT - cực hiếm!)
-
-Chúc bạn may mắn nhận được lộc lớn! 🧧💰
-Nhấn OK để bắt đầu!`;
-
-                alert(guideText);
-                localStorage.setItem('hasSeenGuide2026', 'true');
+                document.getElementById('guideModal').classList.add('visible');
+            } else {
+                updateDisplay();
             }
         }
 
-        window.onload = function() {
-            showGuide();
+        function closeGuide() {
+            document.getElementById('guideModal').classList.remove('visible');
+            localStorage.setItem('hasSeenGuide2026', 'true');
             updateDisplay();
-        };
+        }
+
+        window.onload = showGuide;
 
         function getWeightedRandom() {
             let totalWeight = moneyOptions.reduce((sum, item) => sum + item.weight, 0);
