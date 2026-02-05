@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lì Xì May Mắn 2026 🧧</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red-tet: #c8102e;
+            --gold-tet: #ffcd00;
+            --dark-red: #8b0000;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at center, #5c0000 0%, #1a0000 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+        .container {
+            text-align: center;
+            max-width: 520px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            font-family: 'Pattaya', cursive;
+            color: var(--gold-tet);
+            font-size: 3.8em;
+            text-shadow: 0 0 20px rgba(255,205,0,0.7), 3px 3px 0 #000;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: #ffd;
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .lixi-icon {
+            font-size: 180px;
+            margin: 50px auto 30px;
+            transition: all 0.4s ease;
+            text-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            display: block;
+            width: fit-content;
+            pointer-events: none;
+        }
+        .lixi-icon:hover {
+            transform: scale(1.12) rotate(5deg);
+            filter: drop-shadow(0 0 25px #ffcd00);
+        }
+        .input-group {
+            margin: 0 auto 25px;
+            max-width: 380px;
+            display: flex;
+            gap: 8px;
+        }
+        input {
+            flex: 1;
+            padding: 14px 20px;
+            border-radius: 50px;
+            border: 3px solid var(--gold-tet);
+            font-size: 1.1em;
+            font-weight: bold;
+            text-align: center;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            outline: none;
+        }
+        input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+        .btn-main {
+            background: linear-gradient(180deg, #ffea70, #ffcd00);
+            color: #8b0000;
+            border: none;
+            padding: 16px 50px;
+            font-size: 1.35em;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 0 #b8860b, 0 12px 25px rgba(0,0,0,0.4);
+            transition: all 0.18s;
+            margin: 0 auto 20px;
+            display: block;
+            min-width: 260px;
+        }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 12px 0 #b8860b, 0 18px 35px rgba(0,0,0,0.5); }
+        .btn-main:active { transform: translateY(4px); box-shadow: 0 3px 0 #b8860b; }
+        .btn-main:disabled { opacity: 0.6; cursor: not-allowed; box-shadow: none; transform: none; }
+
+        #resultCard {
+            margin: 30px auto;
+            width: 320px;
+            max-width: 90%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--red-tet), #a00000);
+            border: 5px solid var(--gold-tet);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.7), inset 0 5px 20px rgba(255,255,255,0.15);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            opacity: 0;
+            transform: scale(0.85);
+            transition: all 0.7s ease;
+        }
+        #resultCard.visible { opacity: 1; transform: scale(1); }
+        #resultCard::before {
+            content: '🧧';
+            position: absolute;
+            top: 8px; right: 12px;
+            font-size: 3.2em;
+            opacity: 0.25;
+            pointer-events: none;
+        }
+        .flap-top {
+            width: 100%; height: 45px;
+            background: linear-gradient(to bottom, #ff4d4d, var(--red-tet));
+            border-bottom: 5px solid var(--gold-tet);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Pattaya', cursive; font-size: 1.8em;
+            color: var(--gold-tet); text-shadow: 2px 2px 4px #000;
+            position: absolute; top: 0; left: 0;
+        }
+        .result-amount {
+            font-size: 3.5em; font-weight: 900;
+            color: #00ff41; text-shadow: 3px 3px 8px #000;
+            margin: 40px 0 10px; z-index: 2;
+        }
+        .bottom-text {
+            font-size: 1.2em; color: #fff9e6;
+            text-shadow: 1px 1px 3px #000; margin-bottom: 10px;
+        }
+        .history-card {
+            background: rgba(255,255,255,0.08); border-radius: 16px;
+            padding: 20px; margin-top: 40px;
+            border: 1px solid var(--gold-tet); color: white;
+        }
+        .history-list { max-height: 220px; overflow-y: auto; margin-top: 12px; }
+        .history-item {
+            display: flex; justify-content: space-between;
+            padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.12);
+            font-size: 0.95em;
+        }
+        .confetti {
+            position: fixed; width: 12px; height: 12px;
+            border-radius: 3px; z-index: 100; pointer-events: none;
+        }
+        @media (max-width: 500px) {
+            h1 { font-size: 2.8em; }
+            .lixi-icon { font-size: 140px; margin: 40px auto 25px; }
+            .btn-main { padding: 14px 40px; font-size: 1.2em; }
+            #resultCard { width: 280px; height: 180px; }
+            .result-amount { font-size: 2.8em; }
+            .flap-top { font-size: 1.5em; height: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lì Xì Tết 2026</h1>
+        <p class="subtitle">Chỉ nhận lộc **một lần duy nhất** – Chúc bạn may mắn!</p>
+
+        <div class="input-group">
+            <input type="text" id="userName" placeholder="Nhập họ và tên đầy đủ" maxlength="40">
+        </div>
+
+        <div class="lixi-icon">🧧</div>
+
+        <button class="btn-main" id="btnAction" onclick="openLixi()">RÚT LÌ XÌ NGAY</button>
+
+        <div id="resultCard">
+            <div class="flap-top">CHÚC MỪNG NĂM MỚI</div>
+            <div class="result-amount">0đ</div>
+            <div class="bottom-text">CHÚC MỪNG NĂM MỚI</div>
+        </div>
+
+        <div class="history-card">
+            <div style="font-weight:bold; border-bottom:1px solid var(--gold-tet); padding-bottom:8px;">
+                📜 DANH SÁCH NHẬN LỘC
+            </div>
+            <div class="history-list" id="historyList"></div>
+            <button onclick="clearAll()" style="background:none; border:none; color:#ffaaaa; cursor:pointer; font-size:0.85em; margin-top:12px; display:block; margin-left:auto;">
+                Xóa lịch sử (chỉ admin)
+            </button>
+        </div>
+    </div>
+
+    <audio id="sndTing" src="https://assets.mixkit.co/active_storage/sfx/2013/2013-preview.mp3"></audio>
+    <audio id="sndJackpot" src="https://assets.mixkit.co/active_storage/sfx/1435/1435-preview.mp3"></audio>
+
+    <script>
+        let isProcessing = false;
+        let history = JSON.parse(localStorage.getItem('lixi_history_2026')) || [];
+
+        const moneyOptions = [
+            { val: 10000,   weight: 40,   msg: "Lộc nhỏ đầu năm! 🧧" },
+            { val: 20000,   weight: 30,   msg: "Vạn sự như ý! 🍀" },
+            { val: 50000,   weight: 15,   msg: "Sức khỏe dồi dào! 💪" },
+            { val: 100000,  weight: 9,    msg: "Tiền vô như nước! 🌊" },
+            { val: 200000,  weight: 4,    msg: "Phát tài phát lộc! 💰" },
+            { val: 500000,  weight: 1.5,  msg: "Đại cát đại lợi! 🏆" },
+            { val: 1000000, weight: 0.5,  msg: "JACKPOT! CHÚC MỪNG TỶ PHÚ! 🎰" }
+        ];
+
+        // Hiển thị hướng dẫn khi vào trang lần đầu
+        function showGuide() {
+            if (!localStorage.getItem('hasSeenGuide2026')) {
+                const guideText = 
+`🎉 HƯỚNG DẪN CHƠI LÌ XÌ TẾT 2026 🎉
+
+1. Nhập họ và tên ĐẦY ĐỦ (ví dụ: Nguyễn Văn A, Trần Thị Bích Ngọc).
+   - Chỉ nhập tên riêng (Văn A, Bích, A...) sẽ không được rút!
+
+2. Nhấn nút "RÚT LÌ XÌ NGAY" để nhận lộc.
+   - Mỗi người chỉ được rút 1 lần duy nhất!
+
+3. Các mức tiền có thể nhận (xác suất ngẫu nhiên):
+   - 10.000đ   (rất phổ biến)
+   - 20.000đ
+   - 50.000đ
+   - 100.000đ
+   - 200.000đ
+   - 500.000đ   (hiếm)
+   - 1.000.000đ (JACKPOT - cực hiếm!)
+
+Chúc bạn may mắn nhận được lộc lớn! 🧧💰
+Nhấn OK để bắt đầu!`;
+
+                alert(guideText);
+                localStorage.setItem('hasSeenGuide2026', 'true');
+            }
+        }
+
+        window.onload = function() {
+            showGuide();
+            updateDisplay();
+        };
+
+        function getWeightedRandom() {
+            let totalWeight = moneyOptions.reduce((sum, item) => sum + item.weight, 0);
+            let random = Math.random() * totalWeight;
+            for (let option of moneyOptions) {
+                if (random < option.weight) return option;
+                random -= option.weight;
+            }
+            return moneyOptions[0];
+        }
+
+        function openLixi() {
+            const nameInput = document.getElementById('userName');
+            const name = nameInput.value.trim();
+
+            if (!name) {
+                alert("Vui lòng nhập họ và tên đầy đủ để nhận lộc nhé! 🧧\nVí dụ: Nguyễn Văn A");
+                nameInput.focus();
+                return;
+            }
+
+            const nameParts = name.split(/\s+/).filter(part => part.length > 0);
+            if (nameParts.length < 2) {
+                alert("Vui lòng nhập **đầy đủ họ và tên** (ít nhất 2 từ)!\nVí dụ: Nguyễn Văn A, Trần Thị Bích Ngọc\nKhông được chỉ nhập tên riêng lẻ.");
+                nameInput.focus();
+                return;
+            }
+
+            const hasPlayed = history.find(item => item.name.toLowerCase() === name.toLowerCase());
+            if (hasPlayed) {
+                alert(`Bạn đã nhận ${hasPlayed.val.toLocaleString('vi-VN')}đ rồi ${name} ơi!\nHẹn năm sau nha! ✨`);
+                return;
+            }
+
+            if (isProcessing) return;
+            isProcessing = true;
+            document.getElementById('btnAction').disabled = true;
+
+            const res = getWeightedRandom();
+
+            if (res.val >= 500000) document.getElementById('sndJackpot').play();
+            else document.getElementById('sndTing').play();
+
+            createConfetti(res.val >= 500000 ? 120 : res.val >= 200000 ? 80 : 40);
+
+            const now = new Date();
+            const datetime = now.toLocaleString('vi-VN', {
+                day: '2-digit', month: '2-digit', year: 'numeric',
+                hour: '2-digit', minute: '2-digit', second: '2-digit',
+                hour12: false
+            });
+
+            setTimeout(() => {
+                const resultCard = document.getElementById('resultCard');
+                resultCard.innerHTML = `
+                    <div class="flap-top">CHÚC MỪNG NĂM MỚI</div>
+                    <div class="result-amount">${res.val.toLocaleString('vi-VN')}đ</div>
+                    <div class="bottom-text">CHÚC MỪNG NĂM MỚI</div>
+                `;
+                resultCard.classList.add('visible');
+
+                history.push({ name, val: res.val, datetime });
+                localStorage.setItem('lixi_history_2026', JSON.stringify(history));
+                updateDisplay();
+
+                setTimeout(() => {
+                    resultCard.classList.remove('visible');
+                    resultCard.innerHTML = `
+                        <div class="flap-top">CHÚC MỪNG NĂM MỚI</div>
+                        <div class="result-amount">0đ</div>
+                        <div class="bottom-text">CHÚC MỪNG NĂM MỚI</div>
+                    `;
+                    document.getElementById('btnAction').disabled = false;
+                    isProcessing = false;
+                }, 5000);
+            }, 800);
+        }
+
+        function createConfetti(count) {
+            const colors = ['#ffcd00', '#ff2d55', '#ffffff', '#00ff88', '#ff99cc', '#ffd700', '#ff6600', '#c8ff00'];
+            for (let i = 0; i < count; i++) {
+                const c = document.createElement('div');
+                c.className = 'confetti';
+                c.style.left = Math.random() * 100 + 'vw';
+                c.style.top = '-20px';
+                c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                c.style.width = (8 + Math.random() * 14) + 'px';
+                c.style.height = c.style.width;
+                c.style.opacity = 0.7 + Math.random() * 0.3;
+                document.body.appendChild(c);
+
+                const x = Math.random() * 400 - 200;
+                const angle = Math.random() * 720 - 360;
+                const duration = 1800 + Math.random() * 2400;
+
+                c.animate([
+                    { transform: `translate(0, 0) rotate(0deg)`, opacity: 1 },
+                    { transform: `translate(${x}px, 110vh) rotate(${angle}deg)`, opacity: 0 }
+                ], {
+                    duration: duration,
+                    easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)'
+                }).onfinish = () => c.remove();
+            }
+        }
+
+        function updateDisplay() {
+            const list = document.getElementById('historyList');
+
+            if (history.length === 0) {
+                list.innerHTML = `<div style="padding:25px; opacity:0.6; text-align:center;">Chưa có ai rút lì xì</div>`;
+                return;
+            }
+
+            list.innerHTML = history.slice().reverse().map(item => `
+                <div class="history-item">
+                    <span><b>${item.name}</b> <small>${item.datetime}</small></span>
+                    <span style="color: #ffcd00; font-weight:bold;">+${item.val.toLocaleString('vi-VN')}đ</span>
+                </div>
+            `).join('');
+        }
+
+        function clearAll() {
+            const pass = prompt("Nhập mật khẩu để xóa lịch sử (mặc định: 2026):");
+            if (pass === "2026") {
+                history = [];
+                localStorage.removeItem('lixi_history_2026');
+                updateDisplay();
+                alert("Đã xóa toàn bộ lịch sử!");
+            } else if (pass !== null) {
+                alert("Mật khẩu sai!");
+            }
+        }
+    </script>
+</body>
+</html>
