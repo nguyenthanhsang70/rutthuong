@@ -278,9 +278,9 @@
                  DANH SÁCH NHẬN LỘC
             </div>
             <div class="history-list" id="historyList"></div>
-            <!-- <button onclick="clearAll()" style="background:none; border:none; color:#ffaaaa; cursor:pointer; font-size:0.85em; margin-top:12px; display:block; margin-left:auto;">
-                Xóa lịch sử (chỉ admin)
-            </button> -->
+            <button onclick="clearAll()" style="background:none; border:none; color:#ffaaaa; cursor:pointer; font-size:0.85em; margin-top:12px; display:block; margin-left:auto;">
+                Xóa lịch sử
+            </button>
         </div>
     </div>
 
@@ -482,8 +482,8 @@
         }
 
         function clearAll() {
-            const pass = prompt("Nhập mật khẩu để xóa lịch sử (mặc định: 2026):");
-            if (pass === "2026") {
+            const pass = prompt("Nhập mật khẩu để xóa lịch sử:");
+            if (pass === "Admin2026") {
                 history = [];
                 localStorage.removeItem('lixi_history_2026');
                 updateDisplay();
