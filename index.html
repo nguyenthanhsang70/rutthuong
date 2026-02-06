@@ -93,8 +93,6 @@
         .btn-main:hover { transform: translateY(-3px); box-shadow: 0 12px 0 #b8860b, 0 18px 35px rgba(0,0,0,0.5); }
         .btn-main:active { transform: translateY(4px); box-shadow: 0 3px 0 #b8860b; }
         .btn-main:disabled { opacity: 0.6; cursor: not-allowed; box-shadow: none; transform: none; }
-
-        /* Modal hướng dẫn */
         #guideModal {
             position: fixed;
             inset: 0;
@@ -176,8 +174,6 @@
             transform: translateY(2px);
             box-shadow: 0 3px 0 #b8860b;
         }
-
-        /* Kết quả & Lịch sử */
         #resultCard {
             margin: clamp(20px, 6vw, 30px) auto;
             width: clamp(280px, 80vw, 320px);
@@ -258,21 +254,16 @@
     <div class="container">
         <h1>Lì Xì Tết 2026</h1>
         <p class="subtitle">Chỉ nhận lộc **một lần duy nhất** – Chúc bạn may mắn!</p>
-
         <div class="input-group">
             <input type="text" id="userName" placeholder="Nhập họ và tên đầy đủ" maxlength="40">
         </div>
-
         <div class="lixi-icon">🧧</div>
-
         <button class="btn-main" id="btnAction" onclick="openLixi()">RÚT LÌ XÌ NGAY</button>
-
         <div id="resultCard">
             <div class="flap-top">CHÚC MỪNG NĂM MỚI</div>
             <div class="result-amount">0đ</div>
             <div class="bottom-text">CHÚC MỪNG NĂM MỚI</div>
         </div>
-
         <div class="history-card">
             <div style="font-weight:bold; border-bottom:1px solid var(--gold-tet); padding-bottom:8px;">
                  DANH SÁCH NHẬN LỘC
@@ -305,57 +296,54 @@
             <p style="text-align:center; font-weight:bold; margin-top:20px;">
                 Chúc bạn may mắn nhận được lộc lớn! 🧧💰
             </p>
-             <p style="text-align:center; font-weight:bold; margin-top:20px;">
+            <p style="text-align:center; font-weight:bold; margin-top:20px;">
                 LƯU Ý: CHỤP LẠI KẾT QUẢ RỒI GỬI CHO SANG NẾU NHẬN ĐƯỢC TIỀN, XIN CẢM ƠN!
             </p>
             <!-- link mạng xã hội -->
-<div style="text-align:center; margin-top:20px;">
-    <p style="font-weight:bold; margin-bottom:12px;">Liên Hệ Với Sang</p>
-
-    <a href="https://www.facebook.com/nguyenthanhsang70" target="_blank"
-       style="display:inline-flex;align-items:center;
-              margin:6px;padding:8px 14px;
-              border-radius:30px;
-              background:#1877f2;color:#fff;
-              text-decoration:none;font-size:15px;
-              transition:0.2s;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style="margin-right:6px;">
-            <path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9
-            1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.5V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/>
-        </svg>
-        Facebook
-    </a>
-
-    <a href="https://www.instagram.com/ngth.sang70/" target="_blank"
-       style="display:inline-flex;align-items:center;
-              margin:6px;padding:8px 14px;
-              border-radius:30px;
-              background:linear-gradient(45deg,#feda75,#d62976,#962fbf);
-              color:#fff;text-decoration:none;font-size:15px;
-              transition:0.2s;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style="margin-right:6px;">
-            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
-        </svg>
-        Instagram
-    </a>
-
-    <a href="https://www.tiktok.com/@nguyenthanhsang70" target="_blank"
-       style="display:inline-flex;align-items:center;
-              margin:6px;padding:8px 14px;
-              border-radius:30px;
-              background:#000;color:#fff;
-              text-decoration:none;font-size:15px;
-              transition:0.2s;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style="margin-right:6px;">
-            <path d="M21 8.5c-1.5 0-3-.5-4.2-1.5v7.2c0 3.4-2.8 6.3-6.3 6.3
-            -3.4 0-6.2-2.8-6.2-6.3 0-3.4 2.8-6.2 6.2-6.2.3 0 .7 0 1 .1v3.2
-            c-.3-.1-.6-.2-1-.2-1.7 0-3 1.4-3 3.1 0 1.7 1.3 3.1 3 3.1
-            1.7 0 3.1-1.4 3.1-3.4V2h3.2c.2 1.3.8 2.5 1.8 3.4
-            1 .9 2.3 1.5 3.7 1.6v1.5z"/>
-        </svg>
-        TikTok
-    </a>
-</div>
+            <div style="text-align:center; margin-top:20px;">
+                <p style="font-weight:bold; margin-bottom:12px;">Liên Hệ Với Sang</p>
+                <a href="https://www.facebook.com/nguyenthanhsang70" target="_blank"
+                   style="display:inline-flex;align-items:center;
+                          margin:6px;padding:8px 14px;
+                          border-radius:30px;
+                          background:#1877f2;color:#fff;
+                          text-decoration:none;font-size:15px;
+                          transition:0.2s;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style="margin-right:6px;">
+                        <path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9
+                        1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.5V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/>
+                    </svg>
+                    Facebook
+                </a>
+                <a href="https://www.instagram.com/ngth.sang70/" target="_blank"
+                   style="display:inline-flex;align-items:center;
+                          margin:6px;padding:8px 14px;
+                          border-radius:30px;
+                          background:linear-gradient(45deg,#feda75,#d62976,#962fbf);
+                          color:#fff;text-decoration:none;font-size:15px;
+                          transition:0.2s;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style="margin-right:6px;">
+                        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                    </svg>
+                    Instagram
+                </a>
+                <a href="https://www.tiktok.com/@nguyenthanhsang70" target="_blank"
+                   style="display:inline-flex;align-items:center;
+                          margin:6px;padding:8px 14px;
+                          border-radius:30px;
+                          background:#000;color:#fff;
+                          text-decoration:none;font-size:15px;
+                          transition:0.2s;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style="margin-right:6px;">
+                        <path d="M21 8.5c-1.5 0-3-.5-4.2-1.5v7.2c0 3.4-2.8 6.3-6.3 6.3
+                        -3.4 0-6.2-2.8-6.2-6.3 0-3.4 2.8-6.2 6.2-6.2.3 0 .7 0 1 .1v3.2
+                        c-.3-.1-.6-.2-1-.2-1.7 0-3 1.4-3 3.1 0 1.7 1.3 3.1 3 3.1
+                        1.7 0 3.1-1.4 3.1-3.4V2h3.2c.2 1.3.8 2.5 1.8 3.4
+                        1 .9 2.3 1.5 3.7 1.6v1.5z"/>
+                    </svg>
+                    TikTok
+                </a>
+            </div>
             <button class="modal-btn" onclick="closeGuide()">Tôi Đã hiểu</button>
         </div>
     </div>
@@ -380,26 +368,25 @@
             "nguyễn đức việt": 50000
         };
 
+        // Tỉ lệ mới theo yêu cầu (tổng weight = 104.001)
         const normalOptions = [
-            { val: 10000,   weight: 40   },
-            { val: 20000,   weight: 20   },
-            { val: 50000,   weight: 20   },
-            { val: 100000,  weight: 10   },
-            { val: 200000,  weight: 6    },
-            { val: 500000,  weight: 3.5  },
-            { val: 1000000, weight: 0.001 }
+            { val: 10000,   weight: 45    },  // 45%
+            { val: 20000,   weight: 40    },  // 40%
+            { val: 50000,   weight: 12    },  // 12%
+            { val: 100000,  weight: 4     },  // 4%
+            { val: 200000,  weight: 2     },  // 2%
+            { val: 500000,  weight: 1     },  // 1%
+            { val: 1000000, weight: 0.001 }   // 0.001%
         ];
 
-        // Luôn hiển thị modal hướng dẫn mỗi khi load trang
+        // Luôn hiển thị modal hướng dẫn khi load trang
         function showGuide() {
             document.getElementById('guideModal').classList.add('visible');
         }
-
         function closeGuide() {
             document.getElementById('guideModal').classList.remove('visible');
             updateDisplay();
         }
-
         window.onload = function() {
             showGuide();
             updateDisplay();
@@ -410,44 +397,44 @@
             if (specialNames[normalizedName] !== undefined) {
                 return specialNames[normalizedName];
             }
+
+            // Tính ngẫu nhiên theo trọng số
             let totalWeight = normalOptions.reduce((sum, item) => sum + item.weight, 0);
             let random = Math.random() * totalWeight;
+
             for (let option of normalOptions) {
-                if (random < option.weight) return option.val;
+                if (random < option.weight) {
+                    return option.val;
+                }
                 random -= option.weight;
             }
-            return 10000; // fallback
+            return 10000; // fallback (rất hiếm xảy ra)
         }
 
         function openLixi() {
             const nameInput = document.getElementById('userName');
             const name = nameInput.value.trim();
-
             if (!name) {
                 alert("Vui lòng nhập họ và tên đầy đủ để nhận lộc nhé! 🧧\nVí dụ: Nguyễn Văn A");
                 nameInput.focus();
                 return;
             }
-
             const nameParts = name.split(/\s+/).filter(part => part.length > 0);
             if (nameParts.length < 2) {
                 alert("Vui lòng nhập **đầy đủ họ và tên** (ít nhất 2 từ)! \nVí dụ: Nguyễn Văn A \nKhông được chỉ nhập tên riêng lẻ.");
                 nameInput.focus();
                 return;
             }
-
             const hasPlayed = history.find(item => item.name.toLowerCase() === name.toLowerCase());
             if (hasPlayed) {
                 alert(`Bạn đã nhận ${hasPlayed.val.toLocaleString('vi-VN')}đ rồi ${name} ơi!\nHẹn năm sau nha! ✨`);
                 return;
             }
-
             if (isProcessing) return;
             isProcessing = true;
             document.getElementById('btnAction').disabled = true;
 
             const amount = getRandomAmount(name);
-
             if (amount >= 500000) document.getElementById('sndJackpot').play();
             else document.getElementById('sndTing').play();
 
@@ -498,11 +485,9 @@
                 c.style.height = c.style.width;
                 c.style.opacity = 0.7 + Math.random() * 0.3;
                 document.body.appendChild(c);
-
                 const x = Math.random() * 400 - 200;
                 const angle = Math.random() * 720 - 360;
                 const duration = 1800 + Math.random() * 2400;
-
                 c.animate([
                     { transform: `translate(0, 0) rotate(0deg)`, opacity: 1 },
                     { transform: `translate(${x}px, 110vh) rotate(${angle}deg)`, opacity: 0 }
@@ -515,12 +500,10 @@
 
         function updateDisplay() {
             const list = document.getElementById('historyList');
-
             if (history.length === 0) {
                 list.innerHTML = `<div style="padding:25px; opacity:0.6; text-align:center;">Chưa có ai rút lì xì</div>`;
                 return;
             }
-
             list.innerHTML = history.slice().reverse().map(item => `
                 <div class="history-item">
                     <span><b>${item.name}</b> <small>${item.datetime}</small></span>
